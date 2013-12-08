@@ -3,7 +3,6 @@ $(function ($) {
 	var busStop;
 
 	$("select").change(function(){
-
 		if($("select").val() != "none"){
             main(false);
         }
@@ -15,7 +14,6 @@ $(function ($) {
 		
 		if(!valueFromButton){
 			busStop = $("select").val();
-
 		}
 		else{
 			busStop = valueFromButton;
@@ -34,8 +32,8 @@ $(function ($) {
 				}
 			}
 		}
-        for(j = 0 ; i<timetable.toStation.length ; j++){
-            if(eval("timetable.toStation[i]."+busStop+";")){
+        for(j = 0 ; j<timetable.toStation.length ; j++){
+            if(eval("timetable.toStation[j]."+busStop+";")){
                 var busTimeTemp = eval("timetable.toStation[j]."+busStop+".split(':');");
                 var busTimeTemp_ = new Date();
                 
@@ -47,6 +45,7 @@ $(function ($) {
                 }
             }
         }
+        
 		print(i,j);
 	}
 	function whichLine(univOrStation,lineNumber){
@@ -55,32 +54,36 @@ $(function ($) {
 		else if(line.yokonisi) return "横浜経由";
 		else return "直行便";
 	}
+    
 	function print(numToUniv,numToStation){
 		var timeTemp = new Array();
 		var lineTemp = new Array();
-		var count = 0;
-		for(var i = numToUniv ; i <= timetable.toUniv.length; i++){
+        var i;
+        var count = 0;
+		for(i = numToUniv ; i < timetable.toUniv.length; i++){
 			if(eval("timetable.toUniv[i]."+busStop+";")){
 				timeTemp[count] = eval("timetable.toUniv[i]."+busStop+";");
+                $(".toStation").append(timeTemp[count]);
 				lineTemp[count] = i;
 				count++;
 				if(count > 2) break;
 			}
 		}
 		if(count == 0){
-			$(".toUniv").html("本日のこのバス停の運行は終了しました。")
+			$(".toUniv").html("本日のこのバス停の運行は終了しました。");
+            $(".toUniv_next").html("");
 		}
 		else if(count == 1){
 			$(".toUniv").html(timeTemp[0]+"("+whichLine("toUniv",lineTemp[0])+")");
-			$(".toUniv_next").html("このバスは終バスです。")
+			$(".toUniv_next").html("このバスは終バスです。");
 		}
 		else{
 			$(".toUniv").html(timeTemp[0]+"("+whichLine("toUniv",lineTemp[0])+")");
 			$(".toUniv_next").html(timeTemp[1]+"("+whichLine("toUniv",lineTemp[1])+")");
 		}
-
+        
         count = 0;
-        for(var i = numToStation ; i <= timetable.toStation.length; i++){
+        for(var i = numToStation ; i < timetable.toStation.length; i++){
             if(eval("timetable.toStation[i]."+busStop+";")){
                 timeTemp[count] = eval("timetable.toStation[i]."+busStop+";");
                 lineTemp[count] = i;
@@ -89,11 +92,12 @@ $(function ($) {
             }
         }
         if(count == 0){
-            $(".toStation").html("本日のこのバス停の運行は終了しました。")
+            $(".toStation").html("本日のこのバス停の運行は終了しました。");
+            $(".toStation_next").html("");
         }
         else if(count == 1){
             $(".toStation").html(timeTemp[0]+"("+whichLine("toStation",lineTemp[0])+")");
-            $(".toStation_next").html("このバスは終バスです。")
+            $(".toStation_next").html("このバスは終バスです。");
         }
         else{
             $(".toStation").html(timeTemp[0]+"("+whichLine("toUniv",lineTemp[0])+")");
