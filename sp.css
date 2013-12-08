@@ -32,7 +32,7 @@ background-color: #34AADC;
 }
 #notice{
 	position: absolute;
-	top: 100px;
+	top: 40px;
 	width:86%;
 	left:7%;
 	text-align:center;
@@ -102,7 +102,7 @@ font-weight:lighter;
 	display: table-cell;
 	vertical-align: middle;
 	position:relative;
-	padding:0 10px;
+	padding:0 5px;
 }
 select{
 	-webkit-appearance:button;
