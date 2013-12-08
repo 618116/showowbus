@@ -33,13 +33,12 @@ background-color: #34AADC;
 #notice{
 	position: absolute;
 	top: 40px;
-	width:90%;
-	left:5%;
+	width:84%;
+	left:6%;
 	text-align:center;
 	color:#4A4A4A;
 	font-size:12px;
-	padding:15px 0px 30px 0px;
-	margin:0 10px;
+	padding:15px 5% 30px 5%;
 	background-color: #F7F7F7;
 	opacity: 0.9;
 	border-radius: 0.2em;
