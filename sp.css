@@ -6,7 +6,7 @@ font-family:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ
 }
 
 body{
-	color:gray;
+	background-color: #F7F7F7;
 }
 
 #title{
@@ -31,16 +31,35 @@ background-color: #34AADC;
 	font-weight: lighter;
 }
 .subtitle{
-	font-size:14px;
-	font-weight: bold;
+	background-color: #C7C7CC;
+	font-size:13px;
+	line-height: 13px;
+	height: 14px;
+	color:#4A4A4A;
+	padding:30px 15px 5px;
+	text-align:left;
+	border-bottom: solid 1px #8E8E93;
 }
-#main{
-position:relative;
-width:auto;
-padding:10px;
-font-size:18px;
+.bustime{
+	height:40px;
+	padding:5px;
+	color:#4A4A4A;
+	border-bottom: solid 1px #8E8E93;
+	vertical-align: middle;
 }
-
+.time{
+font-size:30px;
+line-height:130%;
+font-weight:lighter;
+}
+.info{
+	margin-left: 2px;
+	font-size:12px;
+	line-height:100%;
+}
+.lastbus{
+	color:#FF3A2D;
+}
 
 #select_bar{
 	position:fixed;
@@ -50,8 +69,8 @@ font-size:18px;
 	text-align:center;
 	display:table;
 	table-layout:fixed;
-	/*border-top:1px solid gray;*/
-	background-color: white;
+	background-color: #F7F7F7;
+	color:#8E8E93;
 }
 #select_bar li{
 	display: table-cell;
@@ -85,12 +104,5 @@ text-align:center;
 width:auto;
 margin:15px 0;
 height:40px;
-text-align:center;
-}
-.time{
-width:auto;
-margin:10px 0;
-font-size:30px;
-font-weight:bold;
 text-align:center;
 }
