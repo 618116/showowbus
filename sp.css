@@ -32,9 +32,9 @@ background-color: #34AADC;
 }
 #notice{
 	position: absolute;
-	top: 100px;
-	width:86%;
-	left:7%;
+	top: 40px;
+	width:90%;
+	left:5%;
 	text-align:center;
 	color:#4A4A4A;
 	font-size:12px;

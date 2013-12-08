@@ -17,11 +17,7 @@ $(function ($) {
         $(this).css({"color":"#34AADC","font-weight":"bold"});
         $(this).siblings().css({"color":"gray","font-weight":"normal"});
     });
-    $("select").mousedown(function(){
-        $("#notice").fadeOut(400);
-        $("#select_bar .button6").css({"color":"#34AADC","font-weight":"bold"});
-        $("#select_bar .button6").siblings().css({"color":"gray","font-weight":"normal"});
-    });
+    
     $(".button1").mousedown(function(){
         main("gakken");
     });
