@@ -38,7 +38,8 @@ background-color: #34AADC;
 	text-align:center;
 	color:#4A4A4A;
 	font-size:12px;
-	padding:15px 5px 30px 5px;
+	padding:15px 0px 30px 0px;
+	margin:0 10px;
 	background-color: #F7F7F7;
 	opacity: 0.9;
 	border-radius: 0.2em;
@@ -102,7 +103,7 @@ font-weight:lighter;
 	display: table-cell;
 	vertical-align: middle;
 	position:relative;
-	padding:0 5px;
+	padding:0;
 }
 select{
 	-webkit-appearance:button;
