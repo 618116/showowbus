@@ -1,7 +1,7 @@
 *{ 
 margin: 0;
 padding: 0 ;
-font-family: ‘HelveticaNeue-UltraLight’;
+font-family:'Osaka','ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
 -webkit-text-size-adjust: none; /* iPhoneレイアウト崩れ防止 */
 }
 
@@ -11,12 +11,15 @@ body{
 #title{
 position:relative;
 width:auto;
-height:89px;
-padding:5px;
+height:28px;
+padding:21px;
 text-align:center;
-font-size:34px;
+font-size:28px;
 border-bottom:1px solid #999;
 letter-spacing:0.1ex;
+line-height: 28px;
+color:white;
+background-color: #34AADC;
 }
 
 #select_bar{
