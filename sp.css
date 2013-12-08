@@ -102,7 +102,7 @@ font-weight:lighter;
 	display: table-cell;
 	vertical-align: middle;
 	position:relative;
-	padding:0 10px;
+	padding:0 5px;
 }
 select{
 	-webkit-appearance:button;
