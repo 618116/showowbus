@@ -52,7 +52,7 @@ $(function ($) {
 				
 				busTimeTemp_.setHours(busTimeTemp[0]);
 				busTimeTemp_.setMinutes(busTimeTemp[1]);
-                
+
 				var nowTemp = Date.now();
 				if(nowTemp <= busTimeTemp_.getTime()){
 					break;
@@ -81,7 +81,7 @@ $(function ($) {
         var info;
         
         if(line.susenji) info = "周船寺経由";
-        else if(line.yokonisi) info = "横浜経由";
+        else if(line.yokonisi) info = "横浜西経由";
         else info = "直行便";
         if(isLastBus) info += " <span class=\"lastbus\">終</span>";
 
