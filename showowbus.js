@@ -52,13 +52,8 @@ $(function ($) {
 				
 				busTimeTemp_.setHours(busTimeTemp[0]);
 				busTimeTemp_.setMinutes(busTimeTemp[1]);
-
-                var busTimeTemp__ = new Date();
                 
-                busTimeTemp__.setHours(13);
-                busTimeTemp__.setMinutes(27);
-
-				var nowTemp = busTimeTemp__.getTime();//Date.now();
+				var nowTemp = Date.now();
 				if(nowTemp <= busTimeTemp_.getTime()){
 					break;
 				}
@@ -72,12 +67,7 @@ $(function ($) {
                 busTimeTemp_.setHours(busTimeTemp[0]);
                 busTimeTemp_.setMinutes(busTimeTemp[1]);
 
-                var busTimeTemp__ = new Date();
-                
-                busTimeTemp__.setHours(13);
-                busTimeTemp__.setMinutes(27);
-
-                var nowTemp = busTimeTemp__.getTime();//Date.now();
+                var nowTemp = Date.now();
                 if(nowTemp <= busTimeTemp_.getTime()){
                     break;
                 }
