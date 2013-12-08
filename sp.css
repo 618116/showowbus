@@ -19,6 +19,10 @@ border-bottom:1px solid #999;
 letter-spacing:0.1ex;
 }
 
+#select_bar{
+	text-align:center;
+}
+
 #main{
 position:relative;
 width:auto;

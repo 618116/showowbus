@@ -32,8 +32,35 @@ $(function ($) {
 		}
 		print(i,j);
 	}
-	function print(toUniv,toStation){
-		$(".text1").html(busStop+eval("timetable.toUniv[toUniv]."+busStop+";"));
+	function whichLine(univOrStation,lineNumber){
+		var line = eval("timetable."+univOrStation+"[lineNumber]");
+		if(line.susenji) return "周船寺経由";
+		else if(line.yokonisi) return "横浜経由";
+		else return "直行便";
+	}
+	function print(numToUniv,numToStation){
+		var timeTemp = new Array();
+		var lineTemp = new Array();
+		var count = 0;
+		for(var i = numToUniv ; i <= timetable.toUniv.length; i++){
+			if(eval("timetable.toUniv[i]."+busStop+";")){
+				timeTemp[count] = eval("timetable.toUniv[i]."+busStop+";");
+				lineTemp[count] = i;
+				count++;
+				if(count > 2) break;
+			}
+		}
+		if(count == 0){
+			$(".toUniv").html("本日のこのバス停の運行は終了しました。")
+		}
+		else if(count == 1){
+			$(".toUniv").html(timeTemp[0]+"("+whichLine("toUniv",lineTemp[0])+")");
+			$(".toUniv").html("このバスは終バスです。")
+		}
+		else{
+			$(".toUniv").html(timeTemp[0]+"("+whichLine("toUniv",lineTemp[0])+")");
+			$(".toUniv_next").html(timeTemp[1]+"("+whichLine("toUniv",lineTemp[1])+")");
+		}
 	}
 
 
