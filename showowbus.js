@@ -8,6 +8,32 @@ $(function ($) {
         }
 	});
 
+    $(".button1").click(function(){
+        $(this).css("color","#34AADC");
+        $(this).siblings().css("color","gray");
+        main("gakken");
+    });
+    $(".button2").click(function(){
+        $(this).css("color","#34AADC");
+        $(this).siblings().css("color","gray");
+        main("genyou");
+    });
+    $(".button3").click(function(){
+        $(this).css("color","#34AADC");
+        $(this).siblings().css("color","gray");
+        main("susenji");
+    });
+    $(".button4").click(function(){
+        $(this).css("color","#34AADC");
+        $(this).siblings().css("color","gray");
+        main("bigorange");
+    });
+    $(".button5").click(function(){
+        $(this).css("color","#34AADC");
+        $(this).siblings().css("color","gray");
+        main("kougakubu");
+    });
+
 	function main(valueFromButton){
 		var busTime;
 		var i,j;
@@ -100,8 +126,8 @@ $(function ($) {
             $(".toStation_next").html("このバスは終バスです。");
         }
         else{
-            $(".toStation").html(timeTemp[0]+"("+whichLine("toUniv",lineTemp[0])+")");
-            $(".toStation_next").html(timeTemp[1]+"("+whichLine("toUniv",lineTemp[1])+")");
+            $(".toStation").html(timeTemp[0]+"("+whichLine("toStation",lineTemp[0])+")");
+            $(".toStation_next").html(timeTemp[1]+"("+whichLine("toStation",lineTemp[1])+")");
         }
 	}
 
