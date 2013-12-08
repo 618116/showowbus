@@ -4,19 +4,14 @@
 <meta name="viewport" content = "width = device-width, initial-scale = 1, user-scalable = no">
 <meta name="keywords" content="昭和バス,showowbus,九州大学,伊都キャンパス,伊都">
 <title>ShoWowbus - 昭和バス時刻表案内</title>
-<!--link rel="stylesheet" type="text/css" href="./sp.css"-->
+<link rel="stylesheet" type="text/css" href="./sp.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script type="text/javascript" src="showowbus.js"></script>
 </head>
 
 <body>
-	<div id="title">
-		<span class="title1">昭和バス時刻表案内</span><br>
-		<span class="title2">ShoWowBus</span><br>
-		<span class="title1">ver. 0.9.3（β）</span>
-	</div>
-	<div id="main">
-		<div id="test"></div>
+	<p id="title"> ShoWowBus</p>
+	<div id="select_bar">
 		<form id="my-form">
 		<select name="select">
 		<option value="none">バス停を選択</option>
@@ -26,14 +21,11 @@
 		</select>
 		</form>
 	</div>
-	<div id="news">
-	このサービスは昭和バスとは無関係の非公式です。<br>
-	(ダイヤ利用の許可は得ています)<br>
-	昭和バスのダイヤに基づき作成されているので、バスの延長・臨時便などには対応しておりません。
-	</div>
-	<div id="footer">
-	Copyright (C) 2013 Kyushu Univ. Soshiki-bu All Rights Reserved.<br>
-	Developed by Dit(618116@gmail.com)
+	<div id="main">
+		<div class="toUniv"></div>
+		<div class="toUniv_next"></div>
+		<div class="toStation"></div>
+		<div class="toStation_next"></div>
 	</div>
 </body>
 </html>
