@@ -40,6 +40,7 @@ background-color: #34AADC;
 	text-align:left;
 	border-bottom: solid 1px #8E8E93;
 }
+
 .bustime{
 	height:40px;
 	padding:5px;
@@ -59,6 +60,10 @@ font-weight:lighter;
 }
 .lastbus{
 	color:#FF3A2D;
+}
+
+#test{
+	height: 85px;
 }
 
 #select_bar{
