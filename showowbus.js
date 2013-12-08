@@ -8,27 +8,27 @@ $(function ($) {
         }
 	});
 
-    $(".button1").click(function(){
+    $(".button1").mousedown(function(){
         $(this).css("color","#34AADC");
         $(this).siblings().css("color","gray");
         main("gakken");
     });
-    $(".button2").click(function(){
+    $(".button2").mousedown(function(){
         $(this).css("color","#34AADC");
         $(this).siblings().css("color","gray");
         main("genyou");
     });
-    $(".button3").click(function(){
+    $(".button3").mousedown(function(){
         $(this).css("color","#34AADC");
         $(this).siblings().css("color","gray");
         main("susenji");
     });
-    $(".button4").click(function(){
+    $(".button4").mousedown(function(){
         $(this).css("color","#34AADC");
         $(this).siblings().css("color","gray");
         main("bigorange");
     });
-    $(".button5").click(function(){
+    $(".button5").mousedown(function(){
         $(this).css("color","#34AADC");
         $(this).siblings().css("color","gray");
         main("kougakubu");
