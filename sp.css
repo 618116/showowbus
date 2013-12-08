@@ -12,16 +12,31 @@ body{
 #title{
 position:relative;
 width:auto;
-height:28px;
-padding:21px;
+height:45px;
+padding:15px;
 text-align:center;
-font-size:28px;
-border-bottom:1px solid #999;
+/*border-bottom:1px solid #999;*/
 letter-spacing:0.3ex;
-font-weight: lighter;
-line-height: 28px;
+
 color:white;
 background-color: #34AADC;
+}
+.title1{
+	font-size:28px;
+	line-height: 30px;
+	font-weight: bold;
+}
+.title2{
+	font-size:15px;
+	line-height:15px;
+	font-weight: lighter;
+}
+.titlebox{
+	float:left;
+	padding:5px;
+	margin:0 auto;
+	position:relative;
+	border:solid 2px white;
 }
 
 #select_bar{

@@ -2,6 +2,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="viewport" content = "width = device-width, initial-scale = 1, user-scalable = no">
 <meta name="keywords" content="昭和バス,showowbus,九州大学,伊都キャンパス,伊都">
 <title>ShoWowbus - 昭和バス時刻表案内</title>
@@ -11,7 +12,18 @@
 </head>
 
 <body>
-	<p id="title"> ShoWowBus</p>
+	<p id="title"><span class="title1">ShoWowBus</span><br>
+		<span class="title2">昭和バス九大線時刻表案内</span></p>
+	
+	<div id="main">
+		九大工学部行き
+		<div class="toUniv"> </div>
+		<div class="toUniv_next"> </div>
+		<br>
+		九大学研都市駅行き
+		<div class="toStation"> </div>
+		<div class="toStation_next"> </div>
+	</div>
 	<div id="select_bar">
 		<p><span class="button1">九大学研都市</span>
 		<span class="button2">玄洋高校</span>
@@ -43,15 +55,6 @@
 		<option value="bigorange">九大ビッグオレンジ前</option>
 		<option value="kougakubu">九大工学部前</option>
 		</select>
-	</div>
-	<div id="main">
-		九大工学部行き
-		<div class="toUniv"> </div>
-		<div class="toUniv_next"> </div>
-		<br>
-		九大学研都市駅行き
-		<div class="toStation"> </div>
-		<div class="toStation_next"> </div>
 	</div>
 </body>
 </html>
