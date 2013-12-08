@@ -15,12 +15,20 @@
 	<p id="title"><span class="title1">ShoWowBus</span><br>
 		<span class="title2">昭和バス九大線時刻表案内</span></p>
 
-	
+	<div id="notice">昭和バス九大線時刻表案内サービス<br>Showowbus<br>
+		<br><strong>注意事項</strong><br>
+	- 現在のバージョンでは平日ダイヤのみ対応しています。<br>
+	- 本サービスの利用における遅刻などのトラブルは利用者本人の責任とします。<br>
+	- 不具合・意見などは開発者のTwitter(@618116)から受付けています。<br>
+	<br>
+	<strong>iOSをご利用の場合、Safari下部中央メニューの<br>「ホーム画面に追加」でWEBアプリとしてご利用頂けます。</strong>
+	</div>
+
 	<p class="subtitle">→九大工学部前</p>
 		<div id="toUniv"></div>
 	<p class="subtitle">→九大学研都市駅</p>
 		<div id="toStation"></div>
-	<div id="test"></div>
+	<div id="blank"></div>
 
 		<ul id="select_bar">
 		<li class="button1"><span class="bar_text">九大<br>学研都市</span></li>
@@ -28,8 +36,10 @@
 		<li class="button3"><span class="bar_text">周船寺</span></li>
 		<li class="button4"><span class="bar_text">ビッグ<br>オレンジ</span></li>
 		<li class="button5"><span class="bar_text">九大<br>工学部前</span></li>
-		<li><span class="bar_text">その他</span>
-			<select name="select">
+		<li class="button6"><span class="bar_text">その他</span>
+		</li>
+		</ul>
+		<select name="select">
 		<option value="none">バス停を選択</option>
 		<option value="gakken">九大学研都市</option>
 		<option value="kitahara">北原</option>
@@ -40,7 +50,7 @@
 		<option value="imade">今出</option>
 		<option value="motookapost">元岡郵便局前</option>
 		<option value="motookasch">元岡小学校前</option>
-		<option value="yamasaki">山崎</option>
+		<option value="yamazaki">山崎</option>
 		<option value="susenjieast">周船寺東口</option>
 		<option value="susenji">周船寺</option>
 		<option value="izumi">泉</option>
@@ -54,7 +64,6 @@
 		<option value="bigorange">九大ビッグオレンジ前</option>
 		<option value="kougakubu">九大工学部前</option>
 		</select>
-	</li>
-	</ul>
+		
 </body>
 </html>
