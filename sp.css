@@ -46,7 +46,6 @@ background-color: #34AADC;
 }
 #select_bar li{
 	display: table-cell;
-	margin:0 10;
 	vertical-align: middle;
 	position:relative;
 }
@@ -63,7 +62,7 @@ select{
 }
 .bar_text{
 	line-height:20px;
-	font-size:13px;
+	font-size:11px;
 }
 
 #main{
