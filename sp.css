@@ -1,7 +1,7 @@
 *{ 
 margin: 0;
 padding: 0 ;
-font-family:'Osaka','ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+font-family: ‘HelveticaNeue-UltraLight’;
 -webkit-text-size-adjust: none; /* iPhoneレイアウト崩れ防止 */
 }
 
