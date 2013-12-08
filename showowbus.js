@@ -9,28 +9,28 @@ $(function ($) {
 	});
 
     $(".button1").mousedown(function(){
-        $(this).css("color","#34AADC");
-        $(this).siblings().css("color","gray");
+        $(this).css({"color":"#34AADC","font-weight":"bold"});
+        $(this).siblings().css({"color":"gray","font-weight":"normal"});
         main("gakken");
     });
     $(".button2").mousedown(function(){
-        $(this).css("color","#34AADC");
-        $(this).siblings().css("color","gray");
+        $(this).css({"color":"#34AADC","font-weight":"bold"});
+        $(this).siblings().css({"color":"gray","font-weight":"normal"});
         main("genyou");
     });
     $(".button3").mousedown(function(){
-        $(this).css("color","#34AADC");
-        $(this).siblings().css("color","gray");
+        $(this).css({"color":"#34AADC","font-weight":"bold"});
+        $(this).siblings().css({"color":"gray","font-weight":"normal"});
         main("susenji");
     });
     $(".button4").mousedown(function(){
-        $(this).css("color","#34AADC");
-        $(this).siblings().css("color","gray");
+        $(this).css({"color":"#34AADC","font-weight":"bold"});
+        $(this).siblings().css({"color":"gray","font-weight":"normal"});
         main("bigorange");
     });
     $(".button5").mousedown(function(){
-        $(this).css("color","#34AADC");
-        $(this).siblings().css("color","gray");
+        $(this).css({"color":"#34AADC","font-weight":"bold"});
+        $(this).siblings().css({"color":"gray","font-weight":"normal"});
         main("kougakubu");
     });
 

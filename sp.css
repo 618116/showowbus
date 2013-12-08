@@ -25,6 +25,9 @@ background-color: #34AADC;
 }
 
 #select_bar{
+	position:fixed;
+	bottom:10px;
+	width:100%;
 	text-align:center;
 }
 
