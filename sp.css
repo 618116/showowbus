@@ -15,7 +15,6 @@ width:auto;
 height:45px;
 padding:15px;
 text-align:center;
-/*border-bottom:1px solid #999;*/
 letter-spacing:0.3ex;
 
 color:white;
@@ -30,6 +29,16 @@ background-color: #34AADC;
 	font-size:15px;
 	line-height:15px;
 	font-weight: lighter;
+}
+.subtitle{
+	font-size:14px;
+	font-weight: bold;
+}
+#main{
+position:relative;
+width:auto;
+padding:10px;
+font-size:18px;
 }
 
 
@@ -48,7 +57,7 @@ background-color: #34AADC;
 	display: table-cell;
 	vertical-align: middle;
 	position:relative;
-	padding:0 5px;
+	padding:0 2px;
 }
 select{
 	-webkit-appearance:button;
@@ -66,12 +75,7 @@ select{
 	font-size:11px;
 }
 
-#main{
-position:relative;
-width:auto;
-padding:10px;
-font-size:18px;
-}
+
 .text{
 position:relative;
 width:auto;
@@ -89,32 +93,4 @@ margin:10px 0;
 font-size:30px;
 font-weight:bold;
 text-align:center;
-}
-
-.form{
-display:inline;
-}
-
-img {
-position:relative;
-margin-left:-75px;
-left:50%;
-}
-
-#news{
-font-size:12px;
-width:auto;
-color:gray;
-text-align: center;
-border-top: 1px solid gray;
-margin: 10px;
-}
-
-#footer{
-font-size:12px;
-width:auto;
-color:gray;
-text-align: center;
-border-top: 1px solid gray;
-margin: 10px;
 }
