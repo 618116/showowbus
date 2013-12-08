@@ -8,29 +8,23 @@ $(function ($) {
         }
 	});
 
-    $(".button1").mousedown(function(){
+    $("#select_bar").children().mousedown(function(){
         $(this).css({"color":"#34AADC","font-weight":"bold"});
         $(this).siblings().css({"color":"gray","font-weight":"normal"});
+    });
+    $(".button1").mousedown(function(){
         main("gakken");
     });
     $(".button2").mousedown(function(){
-        $(this).css({"color":"#34AADC","font-weight":"bold"});
-        $(this).siblings().css({"color":"gray","font-weight":"normal"});
         main("genyou");
     });
     $(".button3").mousedown(function(){
-        $(this).css({"color":"#34AADC","font-weight":"bold"});
-        $(this).siblings().css({"color":"gray","font-weight":"normal"});
-        main("susenji");
+       main("susenji");
     });
     $(".button4").mousedown(function(){
-        $(this).css({"color":"#34AADC","font-weight":"bold"});
-        $(this).siblings().css({"color":"gray","font-weight":"normal"});
         main("bigorange");
     });
     $(".button5").mousedown(function(){
-        $(this).css({"color":"#34AADC","font-weight":"bold"});
-        $(this).siblings().css({"color":"gray","font-weight":"normal"});
         main("kougakubu");
     });
 
