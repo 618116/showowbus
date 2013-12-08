@@ -46,7 +46,7 @@ background-color: #34AADC;
 }
 #select_bar li{
 	display: table-cell;
-	padding:0 10;
+	margin:0 10;
 	vertical-align: middle;
 	position:relative;
 }
