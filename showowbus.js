@@ -12,13 +12,13 @@ $(function ($) {
         }
 	});
 
-    $("#select_bar").children().mousedown(function(){
+    $("#select_bar").children().click(function(){
         $("#notice").fadeOut(400);
         $(this).css({"color":"#34AADC","font-weight":"bold"});
         $(this).siblings().css({"color":"#8E8E93","font-weight":"normal"});
     });
 
-    $("select").mousedown(function(){
+    $("select").click(function(){
         $("#notice").fadeOut(400);
         $("#select_bar .button6").css({"color":"#34AADC","font-weight":"bold"});
         $("#select_bar .button6").siblings().css({"color":"#8E8E93","font-weight":"normal"});
