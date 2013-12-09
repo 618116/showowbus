@@ -7,12 +7,13 @@ $(function ($) {
     var toStationCount;
     var toUnivLineNum_ = new Array();
     var toStationLineNum_ = new Array();
+    var isMain=false;
 
-    $(".back").hide();
-
-    var textHeight = $(window).height() - $("#title").height() - 31;
-    $("#main").css("height",(textHeight - $("#select_bar").height()) + "px");
-    $("#line").css("height",textHeight + "px");
+    var textHeight = $(window).height() - $("#title_home").height() - 31;
+    $("#line").css("height",($(window).height() - $("#title_main").height() - 20) + "px");
+    $("#home").css("height",($(window).height() - $("#title_home").height() - 46 - $("#select_bar").height()) + "px");
+    $("#main").css("height",($(window).height() - $("#title_main").height() - 20 - $("#select_bar").height()) + "px");
+    //$("#main").css("height",textHeight + "px");
 
 	$("select").change(function(){
 		if($("select").val() != "none"){
@@ -24,10 +25,9 @@ $(function ($) {
         }
 	});
 
+
     $("#select_bar").children().mousedown(function(){
-        $("#notice").fadeOut(400);
-        $("#toUniv").html("");
-        $("#toStation").html("");
+        console.log("test");
         $(this).css({"background-color":"#34AADC","color":"white","font-weight":"bold"});
         $(this).siblings().css({"background-color":"#F7F7F7","color":"#8E8E93","font-weight":"normal"});
     });
@@ -64,8 +64,12 @@ $(function ($) {
 		var busTime;
 		var i,j;
         $("#main").animate({ scrollTop: 0 }, 0);
+        
+        $("#toUniv").html("");
+        $("#toStation").html("");
         toUnivCount = 0;
         toStationCount = 0;
+
 		if(!valueFromButton){
 			busStop = $("select").val();
 		}
@@ -107,8 +111,6 @@ $(function ($) {
                 }
             }
         }
-        console.log(i);
-        console.log(j);
 		printMain(i,j);
 	}
     function makeLine(){
@@ -174,11 +176,11 @@ $(function ($) {
                 $("#toStation").append("<p class=\"more\">▼</p>");
             }
         }
+        if(!isMain && numToUniv != null && numToStation != null) pageTurn(true);
 	}
 
     function printLine(univOrStation,lineIndexNum){
         $("#printLine").html("");
-        console.log(lineIndexNum);
         if(univOrStation == "toUniv"){
             var lineNumber = toUnivLineNum[lineIndexNum];
             $("#line .subtitle").html("九大工学部前行き");
@@ -192,24 +194,39 @@ $(function ($) {
             if(line[bus])　var busTimeTemp = $("#printLine").append(makeBusTimeHTML(univOrStation,lineNumber,false,bus));
             if(bus == busStop) $("#printLine .bustime:last-child").css({"background-color":"#34AADC","color":"white"});
         }
-
         pageTurn(true);
     }
 
-    function pageTurn(toLineOrToMain){
-        if(toLineOrToMain){
+    function pageTurn(goForward){
+        if(isMain){
+            if(goForward){
             $("#line").animate({ scrollTop: 0 }, 0);
             $("#select_bar").animate({"right":"100%"},300);
             $("#main").animate({"right":"100%"},300);
-            $(".back").fadeIn(300);
+            }
+            else {
+                $("#title_home").animate({"right":"0%"},300);
+                $("#home").animate({"right":"0%"},300,function(){
+                    $("#select_bar li").css({"background-color":"#F7F7F7","color":"#8E8E93"});
+                });
+            }
+            isMain = false;
         }
         else {
+            if(goForward){
+            $("#main").animate({ scrollTop: 0 }, 0);
+            $("#home").animate({"right":"100%"},300);
+            $("#title_home").animate({"right":"100%"},300);
+            }
+            else {
             $("#select_bar").animate({"right":"0%"},300);
             $("#main").animate({"right":"0%"},300,function(){
                 $("#main .bustime").css({"background-color":"#F7F7F7","color":"#4A4A4A"});
             });
-            $(".back").fadeOut(300);
+            }
+            isMain = true;
         }
+        
     }
 
     function makeBusTimeHTML(univOrStation,lineNumber,isLastBus,busStop_){
