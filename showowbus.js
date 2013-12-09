@@ -14,15 +14,10 @@ $(function ($) {
 
     $("#select_bar").children().click(function(){
         $("#notice").fadeOut(400);
+        $("#blank").css("height","81px");
         $(this).css({"color":"#34AADC","font-weight":"bold"});
         $(this).siblings().css({"color":"#8E8E93","font-weight":"normal"});
     });
-
-    /*$("select").click(function(){
-        $("#notice").fadeOut(400);
-        $("#select_bar .button6").css({"color":"#34AADC","font-weight":"bold"});
-        $("#select_bar .button6").siblings().css({"color":"#8E8E93","font-weight":"normal"});
-    });*/
 
     $(".button1").mousedown(function(){
         main("gakken");
