@@ -15,9 +15,13 @@ $(function ($) {
     $("#select_bar").children().mousedown(function(){
         $("#notice").fadeOut(400);
         $(this).css({"color":"#34AADC","font-weight":"bold"});
-        $(this).siblings().css({"color":"gray","font-weight":"normal"});
+        $(this).siblings().css({"color":"#8E8E93","font-weight":"normal"});
     });
-    
+    $("select").mousedown(function(){
+        $("#notice").fadeOut(400);
+        $(#select_bar .button6).css({"color":"#34AADC","font-weight":"bold"});
+        $(#select_bar .button6).css({"color":"#8E8E93","font-weight":"normal"});
+    });
     $(".button1").mousedown(function(){
         main("gakken");
     });
