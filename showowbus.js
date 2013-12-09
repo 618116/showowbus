@@ -10,6 +10,10 @@ $(function ($) {
 
     $(".back").hide();
 
+    var textHeight = $(window).height() - $("#title").height() - 31;
+    $("#main").css("height",(textHeight - $("#select_bar").height()) + "px");
+    $("#line").css("height",textHeight + "px");
+
 	$("select").change(function(){
 		if($("select").val() != "none"){
             $(".button6 .bar_text").html($("select option:selected").text());

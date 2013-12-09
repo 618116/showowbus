@@ -64,7 +64,9 @@ background-color: #34AADC;
 	bottom:85px;
 	width: 100%;
 	z-index:1;
-	background-color: #F7F7F7
+	background-color: #F7F7F7;
+	overflow: scroll;
+	-webkit-overflow-scrolling: touch;
 }
 
 .subtitle{
@@ -120,6 +122,8 @@ font-weight:lighter;
 	top:75px;
 	width: 100%;
 	z-index:0;
+	overflow: scroll;
+	-webkit-overflow-scrolling: touch;
 }
 
 #select_bar{
