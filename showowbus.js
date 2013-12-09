@@ -3,6 +3,10 @@ $(function ($) {
 	var busStop;
     var toUnivLineNum = new Array();
     var toStationLineNum = new Array();
+    var toUnivCount;
+    var toStationCount;
+    var toUnivLineNum_ = new Array();
+    var toStationLineNum_ = new Array();
 
     $(".back").hide();
 
@@ -49,8 +53,8 @@ $(function ($) {
     $("#main").on("mousedown",".bustime",makeLine);
     $("#main").on("mousedown",".more",function(){
         $(this).slideUp(200,function(){
-            if($(this).parent().attr("id") == "toUniv") printMain(toUnivLineNum[2]+1,null);
-            else if($(this).parent().attr("id") == "toStation") printMain(null,toStationLineNum[2]+1);
+            if($(this).parent().attr("id") == "toUniv") printMain(toUnivLineNum_[2]+1,null);
+            else if($(this).parent().attr("id") == "toStation") printMain(null,toStationLineNum_[2]+1);
             var nextScroll = $("#main").scrollTop() + 184;
             $("#main").animate({ scrollTop: nextScroll }, 0);
         })
@@ -59,8 +63,9 @@ $(function ($) {
 	function makeMain(valueFromButton){
 		var busTime;
 		var i,j;
-        console.log(valueFromButton);
-		
+        $("#main").animate({ scrollTop: 0 }, 0);
+        toUnivCount = 0;
+        toStationCount = 0;
 		if(!valueFromButton){
 			busStop = $("select").val();
 		}
@@ -117,24 +122,28 @@ $(function ($) {
 		var timeTemp = new Array();
         var i;
         var count;
+        
         if(numToUniv != null){
         count = 0;
 		for(i = numToUniv ; i < timetable.toUniv.length; i++){
 			if(eval("timetable.toUniv[i]."+busStop+";")){
-				toUnivLineNum[count] = i;
+				toUnivLineNum_[count] = i;
 				count++;
+                toUnivLineNum[toUnivCount] = i;
+                toUnivCount++;
 				if(count > 4) break;
 			}
 		}
+        if(count > 3) toUnivCount--;
             if(count < 4){
                 for(i=0;i<count;i++){
-                    if(i == count-1) $("#toUniv").append(makeBusTimeHTML("toUniv",toUnivLineNum[i],true));
-                    else $("#toUniv").append(makeBusTimeHTML("toUniv",toUnivLineNum[i],false));
+                    if(i == count-1) $("#toUniv").append(makeBusTimeHTML("toUniv",toUnivLineNum_[i],true));
+                    else $("#toUniv").append(makeBusTimeHTML("toUniv",toUnivLineNum_[i],false));
                 }
             }
             else{
                 for(i=0;i<3;i++){
-                    $("#toUniv").append(makeBusTimeHTML("toUniv",toUnivLineNum[i],false));
+                    $("#toUniv").append(makeBusTimeHTML("toUniv",toUnivLineNum_[i],false));
                 }
                 $("#toUniv").append("<p class=\"more\">▼</p>");
             }
@@ -144,21 +153,23 @@ $(function ($) {
             count = 0;
             for(var i = numToStation ; i < timetable.toStation.length; i++){
                 if(eval("timetable.toStation[i]."+busStop+";")){
-                    toStationLineNum[count] = i;
+                    toStationLineNum_[count] = i;
                     count++;
+                    toStationLineNum[toStationCount] = i;
+                    toStationCount++;
                     if(count > 4) break;
                 }
             }
-            
+            if(count > 3) toStationCount--;
             if(count < 4){
                 for(i=0;i<count;i++){
-                    if(i == count-1) $("#toStation").append(makeBusTimeHTML("toStation",toStationLineNum[i],true));
-                    else $("#toStation").append(makeBusTimeHTML("toStation",toStationLineNum[i],false));
+                    if(i == count-1) $("#toStation").append(makeBusTimeHTML("toStation",toStationLineNum_[i],true));
+                    else $("#toStation").append(makeBusTimeHTML("toStation",toStationLineNum_[i],false));
                 }
             }
             else{
                 for(i=0;i<3;i++){
-                    $("#toStation").append(makeBusTimeHTML("toStation",toStationLineNum[i],false));
+                    $("#toStation").append(makeBusTimeHTML("toStation",toStationLineNum_[i],false));
                 }
                 $("#toStation").append("<p class=\"more\">▼</p>");
             }
@@ -167,6 +178,7 @@ $(function ($) {
 
     function printLine(univOrStation,lineIndexNum){
         $("#printLine").html("");
+        console.log(lineIndexNum);
         if(univOrStation == "toUniv") var lineNumber = toUnivLineNum[lineIndexNum];
         else if(univOrStation == "toStation") var lineNumber = toStationLineNum[lineIndexNum];
         var line = eval("timetable."+univOrStation+"[lineNumber]");
