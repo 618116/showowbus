@@ -10,10 +10,6 @@ $(function ($) {
 
     $(".back").hide();
 
-    var textHeight = $(window).height() - $("#title").height() - 30;
-    $("#main").css("height",(textHeight - $("#select_bar").height())+"px");
-    $("#line").css("height",textHeight+"px");
-
 	$("select").change(function(){
 		if($("select").val() != "none"){
             $(".button6 .bar_text").html($("select option:selected").text());
@@ -55,8 +51,8 @@ $(function ($) {
         $(this).slideUp(200,function(){
             if($(this).parent().attr("id") == "toUniv") printMain(toUnivLineNum_[2]+1,null);
             else if($(this).parent().attr("id") == "toStation") printMain(null,toStationLineNum_[2]+1);
-            var nextScroll = $("#main").scrollTop() + 184;
-            $("#main").animate({ scrollTop: nextScroll }, 0);
+            var nextScroll = $("#main").scrollTop() + 153;
+            $("#main").animate({ scrollTop: nextScroll }, 200);
         })
     });
 
