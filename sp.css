@@ -133,6 +133,14 @@ font-weight:lighter;
 .lastbus{
 	color:#FF3A2D;
 }
+.detail{
+	position: absolute;
+	margin-top:12px;
+	right:15px;
+	font-size: 14px;
+	line-height: 100%;
+	font-weight:lighter;
+}
 .more{
 	height:20px;
 	padding: 5px;

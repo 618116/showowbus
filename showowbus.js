@@ -232,6 +232,7 @@ $(function ($) {
     function makeBusTimeHTML(univOrStation,lineNumber,isLastBus,busStop_){
         var line = eval("timetable."+univOrStation+"[lineNumber]");
         var info;
+        var flg = false;
         if(!busStop_) busStop_ = busStop;
         else info = busStopName(busStop_);
         if(!info){
@@ -239,16 +240,19 @@ $(function ($) {
             else if(line.yokonisi) info = "横浜西経由";
             else info = "直行便";
             if(isLastBus) info += " <span class=\"lastbus\">終</span>";
+            flg = true;
         }
         
 
-        var busTimeHTML = "<p class=\"bustime\">";
+        var busTimeHTML = "<div class=\"bustime\">";
         busTimeHTML += "<span class=\"time\">";
         busTimeHTML += eval("line."+busStop_);
         busTimeHTML += "</span>";
         busTimeHTML += "<span class=\"info\"> ";
         busTimeHTML += info;
-        busTimeHTML += "</span></p>";
+        busTimeHTML += "</span>";
+        if(flg) busTimeHTML += "<span class=\"detail\">&gt;</span>";
+        busTimeHTML += "</div>";
 
         return busTimeHTML;
     }
