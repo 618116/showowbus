@@ -13,7 +13,6 @@ $(function ($) {
     $("#line").css("height",($(window).height() - $("#title_main").height() - 20) + "px");
     $("#home").css("height",($(window).height() - $("#title_home").height() - 46 - $("#select_bar").height()) + "px");
     $("#main").css("height",($(window).height() - $("#title_main").height() - 20) + "px");
-    //$("#main").css("height",textHeight + "px");
 
 	$("select").change(function(){
 		if($("select").val() != "none"){
@@ -27,7 +26,6 @@ $(function ($) {
 
 
     $("#select_bar").children().mousedown(function(){
-        console.log("test");
         $(this).css({"background-color":"#34AADC","color":"white","font-weight":"bold"});
         $(this).siblings().css({"background-color":"#F7F7F7","color":"#8E8E93","font-weight":"normal"});
     });
@@ -202,29 +200,29 @@ $(function ($) {
     function pageTurn(goForward){
         if(isMain){
             if(goForward){
-            $("#line").animate({ scrollTop: 0 }, 0);
-            $("#select_bar").animate({"right":"100%"},300);
-            $("#main").animate({"right":"100%"},300);
+                $("#line").animate({ scrollTop: 0 }, 0);
+                $("#select_bar").animate({"right":"100%"},300);
+                $("#main").animate({"right":"100%"},300);
             }
             else {
                 $("#title_home").animate({"right":"0%"},300);
                 $("#home").animate({"right":"0%"},300);
-                $("#select_bar li").css({"background-color":"#F7F7F7","color":"#8E8E93"});
+                $("#select_bar li").css({"background-color":"#F7F7F7","color":"#8E8E93","font-weight":"normal"});
                 $("#select_bar").animate({"right":"0%"},300);
             }
             isMain = false;
         }
         else {
             if(goForward){
-            $("#main").animate({ scrollTop: 0 }, 0);
-            $("#home").animate({"right":"100%"},300);
-            $("#title_home").animate({"right":"100%"},300);
-            $("#select_bar").animate({"right":"100%"},300);
+                $("#main").animate({ scrollTop: 0 }, 0);
+                $("#home").animate({"right":"100%"},300);
+                $("#title_home").animate({"right":"100%"},300);
+                $("#select_bar").animate({"right":"100%"},300);
             }
             else {
-            $("#main").animate({"right":"0%"},300,function(){
-                $("#main .bustime").css({"background-color":"#F7F7F7","color":"#4A4A4A"});
-            });
+                $("#main").animate({"right":"0%"},300,function(){
+                    $("#main .bustime").css({"background-color":"#F7F7F7","color":"#4A4A4A"});
+                });
             }
             isMain = true;
         }
