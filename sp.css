@@ -38,7 +38,7 @@ background-color: #34AADC;
 	text-align:center;
 	color:#4A4A4A;
 	font-size:12px;
-	padding:15px 3% 30px 3%;
+	padding:15px 3% 15px 3%;
 	background-color: #F7F7F7;
 	opacity: 0.9;
 	border-radius: 0.2em;
@@ -86,7 +86,7 @@ font-weight:lighter;
 }
 
 #blank{
-	height: 360px;
+	height: 350px;
 	background-color: none;
 }
 
