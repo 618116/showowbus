@@ -1,41 +1,53 @@
 $(function ($) {
 
 	var busStop;
+    var toUnivLineNum = new Array();
+    var toStationLineNum = new Array();
+
+    $(".back").hide();
+
+    var textHeight = $(window).height() - $("#title").height() - 30;
+    $("#main").css("height",(textHeight - $("#select_bar").height())+"px");
+    $("#line").css("height",textHeight+"px");
 
 	$("select").change(function(){
 		if($("select").val() != "none"){
             $(".button6 .bar_text").html($("select option:selected").text());
-            main(false);
+            makeMain(false);
         }
         else{
             $(".button6 .bar_text").html("その他");
         }
 	});
 
-    $("#select_bar").children().click(function(){
+    $("#select_bar").children().mousedown(function(){
         $("#notice").fadeOut(400);
         $("#blank").css("height","81px");
-        $(this).css({"color":"#34AADC","font-weight":"bold"});
-        $(this).siblings().css({"color":"#8E8E93","font-weight":"normal"});
+        $(this).css({"background-color":"#34AADC","color":"white","font-weight":"bold"});
+        $(this).siblings().css({"background-color":"#F7F7F7","color":"#8E8E93","font-weight":"normal"});
     });
 
     $(".button1").mousedown(function(){
-        main("gakken");
+        makeMain("gakken");
     });
     $(".button2").mousedown(function(){
-        main("genyou");
+        makeMain("genyou");
     });
     $(".button3").mousedown(function(){
-       main("susenji");
+       makeMain("susenji");
     });
     $(".button4").mousedown(function(){
-        main("bigorange");
+        makeMain("bigorange");
     });
     $(".button5").mousedown(function(){
-        main("kougakubu");
+        makeMain("kougakubu");
     });
+    $(".back").mousedown(function(){
+        pageTurn(false);
+    });
+    $(document).on("mousedown","#main .bustime",makeLine);
 
-	function main(valueFromButton){
+	function makeMain(valueFromButton){
 		var busTime;
 		var i,j;
 		
@@ -68,27 +80,119 @@ $(function ($) {
                 busTimeTemp_.setHours(busTimeTemp[0]);
                 busTimeTemp_.setMinutes(busTimeTemp[1]);
 
+                var busTimeTemp__ = new Date();
+                
+                /*busTimeTemp__.setHours(22);
+                busTimeTemp__.setMinutes(21);
+
+                var nowTemp = busTimeTemp__;*/
                 var nowTemp = Date.now();
                 if(nowTemp <= busTimeTemp_.getTime()){
                     break;
                 }
             }
         }
-        
-		print(i,j);
+		printMain(i,j);
 	}
-    function makeBusTime(univOrStation,lineNumber,isLastBus){
+    function makeLine(){
+        $(this).css({"background-color":"#34AADC","color":"white"});
+        if($(this).parent().attr("id") == "toUniv") var univOrStation = "toUniv";
+        else if($(this).parent().attr("id") == "toStation") var univOrStation = "toStation";
+        var lineIndexNum = $(this).parent().children().index(this);
+        printLine(univOrStation,lineIndexNum);
+    }
+	function printMain(numToUniv,numToStation){
+		var timeTemp = new Array();
+        var i;
+        var count = 0;
+		for(i = numToUniv ; i < timetable.toUniv.length; i++){
+			if(eval("timetable.toUniv[i]."+busStop+";")){
+				toUnivLineNum[count] = i;
+				count++;
+				if(count > 4) break;
+			}
+		}
+        $("#toUniv").html("");
+        if(count < 4){
+            for(i=0;i<count;i++){
+                if(i == count-1) $("#toUniv").append(makeBusTimeHTML("toUniv",toUnivLineNum[i],true));
+                else $("#toUniv").append(makeBusTimeHTML("toUniv",toUnivLineNum[i],false));
+            }
+        }
+        else{
+            for(i=0;i<3;i++){
+                $("#toUniv").append(makeBusTimeHTML("toUniv",toUnivLineNum[i],false));
+            }
+        }
+        
+        count = 0;
+        for(var i = numToStation ; i < timetable.toStation.length; i++){
+            if(eval("timetable.toStation[i]."+busStop+";")){
+                toStationLineNum[count] = i;
+                count++;
+                if(count > 4) break;
+            }
+        }
+        $("#toStation").html("");
+        if(count < 4){
+            for(i=0;i<count;i++){
+                if(i == count-1) $("#toStation").append(makeBusTimeHTML("toStation",toStationLineNum[i],true));
+                else $("#toStation").append(makeBusTimeHTML("toStation",toStationLineNum[i],false));
+            }
+        }
+        else{
+            for(i=0;i<3;i++){
+                $("#toStation").append(makeBusTimeHTML("toStation",toStationLineNum[i],false));
+            }
+        }
+	}
+
+    function printLine(univOrStation,lineIndexNum){
+        $("#printLine").html("");
+        if(univOrStation == "toUniv") var lineNumber = toUnivLineNum[lineIndexNum];
+        else if(univOrStation == "toStation") var lineNumber = toStationLineNum[lineIndexNum];
+        var line = eval("timetable."+univOrStation+"[lineNumber]");
+        for ( var bus in line ) {
+            if(line[bus])　var busTimeTemp = $("#printLine").append(makeBusTimeHTML(univOrStation,lineNumber,false,bus));
+            if(bus == busStop) $("#printLine .bustime:last-child").css({"background-color":"#34AADC","color":"white"});
+            //console.log($("#printLine:last-child"));
+        }
+
+        pageTurn(true);
+    }
+
+    function pageTurn(toLineOrToMain){
+        if(toLineOrToMain){
+            $("#line").animate({ scrollTop: 0 }, 0);
+            $("#select_bar").animate({"right":"100%"},300);
+            $("#main").animate({"right":"100%"},300);
+            $(".back").fadeIn(300);
+        }
+        else {
+            $("#select_bar").animate({"right":"0%"},300);
+            $("#main").animate({"right":"0%"},300,function(){
+                $("#main .bustime").css({"background-color":"#F7F7F7","color":"#4A4A4A"});
+            });
+            $(".back").fadeOut(300);
+        }
+    }
+
+    function makeBusTimeHTML(univOrStation,lineNumber,isLastBus,busStop_){
         var line = eval("timetable."+univOrStation+"[lineNumber]");
         var info;
+        if(!busStop_) busStop_ = busStop;
+        else info = busStopName(busStop_);
+        if(!info){
+            if(line.susenji) info = "周船寺経由";
+            else if(line.yokonisi) info = "横浜西経由";
+            else info = "直行便";
+            if(isLastBus) info += " <span class=\"lastbus\">終</span>";
+        }
         
-        if(line.susenji) info = "周船寺経由";
-        else if(line.yokonisi) info = "横浜西経由";
-        else info = "直行便";
-        if(isLastBus) info += " <span class=\"lastbus\">終</span>";
 
         var busTimeHTML = "<p class=\"bustime\">";
         busTimeHTML += "<span class=\"time\">";
-        busTimeHTML += eval("line."+busStop);
+        busTimeHTML += eval("line."+busStop_);
         busTimeHTML += "</span>";
         busTimeHTML += "<span class=\"info\"> ";
         busTimeHTML += info;
@@ -96,55 +200,37 @@ $(function ($) {
 
         return busTimeHTML;
     }
-	function print(numToUniv,numToStation){
-		var timeTemp = new Array();
-		var lineTemp = new Array();
-        var i;
-        var count = 0;
-		for(i = numToUniv ; i < timetable.toUniv.length; i++){
-			if(eval("timetable.toUniv[i]."+busStop+";")){
-				lineTemp[count] = i;
-				count++;
-				if(count > 3) break;
-			}
-		}
-        $("#toUniv").html("");
-        if(count != 4){
-            for(i=0;i<count-1;i++){
-                if(i == count-2) $("#toUniv").append(makeBusTime("toUniv",lineTemp[i],true));
-                else $("#toUniv").append(makeBusTime("toUniv",lineTemp[i],false));
-            }
-        }
-        else{
-            for(i=0;i<count-1;i++){
-                $("#toUniv").append(makeBusTime("toUniv",lineTemp[i],false));
-            }
-        }
-        
-        count = 0;
-        for(var i = numToStation ; i < timetable.toStation.length; i++){
-            if(eval("timetable.toStation[i]."+busStop+";")){
-                lineTemp[count] = i;
-                count++;
-                if(count > 3) break;
-            }
-        }
-        $("#toStation").html("");
-        if(count != 4){
-            for(i=0;i<count-1;i++){
-                if(i == count-2) $("#toStation").append(makeBusTime("toStation",lineTemp[i],true));
-                else $("#toStation").append(makeBusTime("toStation",lineTemp[i],false));
-            }
-        }
-        else{
-            for(i=0;i<count-1;i++){
-                $("#toStation").append(makeBusTime("toStation",lineTemp[i],false));
-            }
-        }
-	}
 
+    function busStopName(busStopCode){
+        for(var busName in busStopNameTable){
+            if(busName == busStopCode) return busStopNameTable[busName];
+        }
+    }
 
-
+var busStopNameTable = {
+    "gakken":"九大学研都市",
+    "kitahara":"北原",
+    "maiduru":"舞鶴高校入口",
+    "yokonisi":"横浜西",
+    "workcenter":"工芸会ワークセンター",
+    "genyou":"玄洋高校",
+    "imade":"今出",
+    "motookapost":"元岡郵便局前",
+    "motookasch":"元岡小学校前",
+    "yamazaki":"山崎",
+    "susenjieast":"周船寺東口",
+    "susenji":"周船寺",
+    "izumi":"泉",
+    "fujimi":"富士見",
+    "tarou":"たろう保育園前",
+    "motookacoop":"元岡農協前",
+    "motooka":"元岡",
+    "yamade":"山手",
+    "sangaku":"産学連携交流センター",
+    "firecenter":"西消防署元岡出張所前",
+    "bigorange":"九大ビッグオレンジ前",
+    "kougakubu":"九大工学部前"
+}
 
 
 

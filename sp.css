@@ -13,12 +13,19 @@ body{
 position:relative;
 width:auto;
 height:45px;
-padding:15px;
+padding:15px 5px;
 text-align:center;
 letter-spacing:0.3ex;
 
 color:white;
 background-color: #34AADC;
+}
+.back{
+	position:absolute;
+	font-size:15px;
+	line-height: 15px;
+	margin-top:15px;
+	letter-spacing: 0;
 }
 .title1{
 	font-size:28px;
@@ -43,13 +50,23 @@ background-color: #34AADC;
 	opacity: 0.9;
 	border-radius: 0.2em;
 	letter-spacing: 0.1em;
+	z-index: 3;
 
 	box-shadow:0px 0px 3px silver;/* CSS3 */
 	-moz-box-shadow:0px 0px 3px silver;/* Firefox */
 	-webkit-box-shadow:0px 0px 3px silver;/* Safiri, Chrome */
 }
 
+#main{
+	position:absolute;
+	width: 100%;
+	z-index:1;
+	overflow: scroll;
+	background-color: #F7F7F7
+}
+
 .subtitle{
+	
 	background-color: #C7C7CC;
 	font-size:13px;
 	line-height: 100%;
@@ -70,6 +87,7 @@ background-color: #34AADC;
 	color:#4A4A4A;
 	border-bottom: solid 1px #8E8E93;
 	vertical-align: middle;
+	z-index: 5;
 }
 .time{
 font-size:30px;
@@ -90,6 +108,13 @@ font-weight:lighter;
 	background-color: none;
 }
 
+#line{
+	position:absolute;
+	width: 100%;
+	z-index:0;
+	overflow: scroll;
+}
+
 #select_bar{
 	position:fixed;
 	width:100%;
@@ -100,6 +125,7 @@ font-weight:lighter;
 	table-layout:fixed;
 	background-color: #F7F7F7;
 	color:#8E8E93;
+	z-index: 2;
 }
 #select_bar li{
 	display: table-cell;

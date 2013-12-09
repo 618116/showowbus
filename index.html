@@ -9,7 +9,7 @@
 <link rel="stylesheet" type="text/css" href="./sp.css">
 <script src="./jquery-1.10.2.min.js"></script>
 <script type="text/javascript" src="showowbus.js"></script>
-<script type="text/javascript">
+<!--script type="text/javascript">
 
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-46301407-1']);
@@ -21,12 +21,15 @@
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 
-</script>
+</script-->
 </head>
 
 <body>
-	<p id="title"><span class="title1">ShoWowBus</span><br>
-		<span class="title2">昭和バス九大線時刻表案内</span></p>
+	<div id="title">
+		<p class="back">&lt; 戻る</p>
+		<span class="title1">ShoWowBus</span><br>
+		<span class="title2">昭和バス九大線時刻表案内</span>
+	</div>
 
 	<div id="notice"><strong>昭和バス九大線時刻表案内サービス<br>ShoWowBus</strong><br>
 		<br><strong>注意事項</strong><br>
@@ -37,11 +40,18 @@
 	<br>▼下からバス停を選んでください。
 	</div>
 
-	<p class="subtitle">九大工学部前<span>行きの次のバス</span></p>
+	<div id="main">
+	<p class="subtitle">九大工学部前<span>行き　次のバス</span></p>
 		<div id="toUniv"></div>
-	<p class="subtitle">九大学研都市駅<span>行きの次のバス</span></p>
+	<p class="subtitle">九大学研都市駅<span>行き　次のバス</span></p>
 		<div id="toStation"></div>
-	<div id="blank"></div>
+	<!--div id="blank"></div-->
+	</div>
+
+	<div id="line">
+		<p class="subtitle"></p>
+		<div id="printLine"></div>
+	</div>
 
 		<ul id="select_bar">
 		<li class="button1"><span class="bar_text">九大<br>学研都市</span></li>
