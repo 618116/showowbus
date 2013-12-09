@@ -20,7 +20,7 @@ $(function ($) {
     $("select").mousedown(function(){
         $("#notice").fadeOut(400);
         $(#select_bar .button6).css({"color":"#34AADC","font-weight":"bold"});
-        $(#select_bar .button6).css({"color":"#8E8E93","font-weight":"normal"});
+        $(#select_bar .button6).siblings().css({"color":"#8E8E93","font-weight":"normal"});
     });
     $(".button1").mousedown(function(){
         main("gakken");
