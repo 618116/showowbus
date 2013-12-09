@@ -12,7 +12,7 @@ $(function ($) {
     var textHeight = $(window).height() - $("#title_home").height() - 31;
     $("#line").css("height",($(window).height() - $("#title_main").height() - 20) + "px");
     $("#home").css("height",($(window).height() - $("#title_home").height() - 46 - $("#select_bar").height()) + "px");
-    $("#main").css("height",($(window).height() - $("#title_main").height() - 20 - $("#select_bar").height()) + "px");
+    $("#main").css("height",($(window).height() - $("#title_main").height() - 20) + "px");
     //$("#main").css("height",textHeight + "px");
 
 	$("select").change(function(){
@@ -63,7 +63,6 @@ $(function ($) {
 	function makeMain(valueFromButton){
 		var busTime;
 		var i,j;
-        $("#main").animate({ scrollTop: 0 }, 0);
         
         $("#toUniv").html("");
         $("#toStation").html("");
@@ -176,7 +175,10 @@ $(function ($) {
                 $("#toStation").append("<p class=\"more\">▼</p>");
             }
         }
-        if(!isMain && numToUniv != null && numToStation != null) pageTurn(true);
+        if(!isMain && numToUniv != null && numToStation != null){
+            $("#title_main span").html(busStopName(busStop));
+            pageTurn(true);
+        }
 	}
 
     function printLine(univOrStation,lineIndexNum){
@@ -206,9 +208,9 @@ $(function ($) {
             }
             else {
                 $("#title_home").animate({"right":"0%"},300);
-                $("#home").animate({"right":"0%"},300,function(){
-                    $("#select_bar li").css({"background-color":"#F7F7F7","color":"#8E8E93"});
-                });
+                $("#home").animate({"right":"0%"},300);
+                $("#select_bar li").css({"background-color":"#F7F7F7","color":"#8E8E93"});
+                $("#select_bar").animate({"right":"0%"},300);
             }
             isMain = false;
         }
@@ -217,9 +219,9 @@ $(function ($) {
             $("#main").animate({ scrollTop: 0 }, 0);
             $("#home").animate({"right":"100%"},300);
             $("#title_home").animate({"right":"100%"},300);
+            $("#select_bar").animate({"right":"100%"},300);
             }
             else {
-            $("#select_bar").animate({"right":"0%"},300);
             $("#main").animate({"right":"0%"},300,function(){
                 $("#main .bustime").css({"background-color":"#F7F7F7","color":"#4A4A4A"});
             });
