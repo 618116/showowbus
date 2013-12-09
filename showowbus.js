@@ -175,8 +175,14 @@ $(function ($) {
     function printLine(univOrStation,lineIndexNum){
         $("#printLine").html("");
         console.log(lineIndexNum);
-        if(univOrStation == "toUniv") var lineNumber = toUnivLineNum[lineIndexNum];
-        else if(univOrStation == "toStation") var lineNumber = toStationLineNum[lineIndexNum];
+        if(univOrStation == "toUniv"){
+            var lineNumber = toUnivLineNum[lineIndexNum];
+            $("#line .subtitle").html("九大工学部前行き");
+        }
+        else if(univOrStation == "toStation"){
+            var lineNumber = toStationLineNum[lineIndexNum];
+            $("#line .subtitle").html("九大学研都市駅行き");
+        }
         var line = eval("timetable."+univOrStation+"[lineNumber]");
         for ( var bus in line ) {
             if(line[bus])　var busTimeTemp = $("#printLine").append(makeBusTimeHTML(univOrStation,lineNumber,false,bus));
