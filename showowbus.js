@@ -14,6 +14,12 @@ $(function ($) {
     $("#main").css("height",($(window).height() - $("#title_main").height() - 20) + "px");
     $("select").css("width",$(".button5").width() + "px");
 
+    $(window).resize(function() {
+    $("#line").css("height",($(window).height() - $("#title_main").height() - 20) + "px");
+    $("#home").css("height",($(window).height() - $("#title_home").height() - 46 - $("#select_bar").height()) + "px");
+    $("#main").css("height",($(window).height() - $("#title_main").height() - 20) + "px");
+    });
+
 	$("select").change(function(){
 		if($("select").val() != "none"){
             //$(".button6 .bar_text").html($("select option:selected").text());
