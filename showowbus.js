@@ -9,7 +9,6 @@ $(function ($) {
     var toStationLineNum_ = new Array();
     var isMain=false;
 
-    var textHeight = $(window).height() - $("#title_home").height() - 31;
     $("#line").css("height",($(window).height() - $("#title_main").height() - 20) + "px");
     $("#home").css("height",($(window).height() - $("#title_home").height() - 46 - $("#select_bar").height()) + "px");
     $("#main").css("height",($(window).height() - $("#title_main").height() - 20) + "px");
