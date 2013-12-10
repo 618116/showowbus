@@ -3,22 +3,45 @@ margin: 0;
 padding: 0 ;
 font-family:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
 -webkit-text-size-adjust: 100%; /* iPhoneレイアウト崩れ防止 */
+-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
 }
 
 body{
 	background-color: #F7F7F7;
 }
 
-#title{
-position:relative;
-width:auto;
-height:45px;
-padding:15px;
+#title_home{
+position:fixed;
+width:100%;
+height:44px;
+padding:15px 0;
 text-align:center;
 letter-spacing:0.3ex;
-
+z-index: 10;
+border-bottom: solid 1px #8E8E93;
 color:white;
 background-color: #34AADC;
+}
+#title_main{
+position:fixed;
+width:100%;
+height:15px;
+padding:10px 0;
+text-align:center;
+letter-spacing:0.3ex;
+z-index: 6;
+border-bottom: solid 1px #8E8E93;
+color:white;
+background-color: #34AADC;
+}
+.back{
+	position:absolute;
+	font-size:15px;
+	line-height: 15px;
+	margin-left: 10px;
+	letter-spacing: 0;
+	z-index:7;
 }
 .title1{
 	font-size:28px;
@@ -30,35 +53,56 @@ background-color: #34AADC;
 	line-height:15px;
 	font-weight: lighter;
 }
-#notice{
-	position: absolute;
-	top: 40px;
-	width:86%;
-	left:7%;
+#home{
+	position:absolute;
+	top :76px;
+	width: 90%;
+	z-index:9;
+	background-color: #F7F7F7;
 	text-align:center;
 	color:#4A4A4A;
 	font-size:12px;
-	padding:15px 0 30px 0;
+	padding:15px 5% 0 5%;
+	overflow: scroll;
+	-webkit-overflow-scrolling: touch;
+}
+#select_bar{
+	position:absolute;
+	width:100%;
+	bottom:0;
+	height:80px;
+	text-align:center;
+	display:table;
+	table-layout:fixed;
 	background-color: #F7F7F7;
-	opacity: 0.9;
-	border-radius: 0.2em;
-	letter-spacing: 0.1em;
-
-	box-shadow:0px 0px 3px silver;/* CSS3 */
-	-moz-box-shadow:0px 0px 3px silver;/* Firefox */
-	-webkit-box-shadow:0px 0px 3px silver;/* Safiri, Chrome */
+	color:#8E8E93;
+	z-index: 11;
+}
+#main{
+	position:absolute;
+	top:36px;
+	bottom:85px;
+	width: 100%;
+	z-index:5;
+	background-color: #F7F7F7;
+	overflow: scroll;
+	-webkit-overflow-scrolling: touch;
 }
 
 .subtitle{
+	
 	background-color: #C7C7CC;
 	font-size:13px;
-	line-height: 13px;
+	line-height: 100%;
 	height: 14px;
 	color:#4A4A4A;
 	padding:15px 15px 5px;
 	text-align:left;
 	border-bottom: solid 1px #8E8E93;
 	letter-spacing: 0.1em;
+}
+.subtitle span{
+	font-size:11px;
 }
 
 .bustime{
@@ -67,6 +111,7 @@ background-color: #34AADC;
 	color:#4A4A4A;
 	border-bottom: solid 1px #8E8E93;
 	vertical-align: middle;
+	z-index: 5;
 }
 .time{
 font-size:30px;
@@ -81,35 +126,47 @@ font-weight:lighter;
 .lastbus{
 	color:#FF3A2D;
 }
-
-#blank{
-	height: 81px;
-	background-color: none;
+.detail{
+	position: absolute;
+	margin-top:12px;
+	right:15px;
+	font-size: 14px;
+	line-height: 100%;
+	font-weight:lighter;
+}
+.more{
+	height:20px;
+	padding: 5px;
+	color:#4A4A4A;
+	border-bottom: solid 1px #8E8E93;
+	vertical-align: middle;
+	z-index: 5;
+	font-size:20px;
+	line-height:20px;
+	text-align: center;
+}
+#line{
+	position:absolute;
+	top:36px;
+	width: 100%;
+	z-index:0;
+	overflow: scroll;
+	-webkit-overflow-scrolling: touch;
 }
 
-#select_bar{
-	position:fixed;
-	width:100%;
-	bottom:0;
-	height:80px;
-	text-align:center;
-	display:table;
-	table-layout:fixed;
-	background-color: #F7F7F7;
-	color:#8E8E93;
-}
+
 #select_bar li{
 	display: table-cell;
 	vertical-align: middle;
 	position:relative;
-	padding:0 5px;
+	padding:0;
 }
 select{
 	-webkit-appearance:button;
     -moz-appearance:button;
     appearance:button;
 	position:absolute;
-    width: 66px;
+    /*width: 100%;*/
     height: 88px;
     opacity:0;
     bottom:0;

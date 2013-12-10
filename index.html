@@ -9,25 +9,53 @@
 <link rel="stylesheet" type="text/css" href="./sp.css">
 <script src="./jquery-1.10.2.min.js"></script>
 <script type="text/javascript" src="showowbus.js"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46301407-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
 </head>
 
 <body>
-	<p id="title"><span class="title1">ShoWowBus</span><br>
-		<span class="title2">昭和バス九大線時刻表案内</span></p>
 
-	<div id="notice">昭和バス九大線時刻表案内サービス<br>Showowbus<br>
-		<br><strong>注意事項</strong><br>
+	<div id="title_home">
+		<span class="title1">ShoWowBus</span><br>
+		<span class="title2">昭和バス九大線時刻表案内</span>
+	</div>
+
+	<div id="title_main">
+		<p class="back">&lt; 戻る</p>
+		<span class="title2"></span>
+	</div>
+
+	<div id="home">
+	<strong>注意事項</strong><br>
 	- 現在のバージョンでは平日ダイヤのみ対応しています。<br>
 	- 不具合・意見などは開発者のTwitter(@618116)から受付けています。<br>
 	<br>
-	<strong>iOSをご利用の場合、<br>Safari下部中央メニューの<br>「ホーム画面に追加」<br>でWEBアプリとしてご利用頂けます。</strong>
+	<strong>iOSをご利用の場合、<br>Safari下部中央メニューの<br>「ホーム画面に追加」<br>でWEBアプリとしてご利用頂けます。</strong><br>
+	<br>▼下からバス停を選んでください。
 	</div>
 
-	<p class="subtitle">→九大工学部前</p>
+	<div id="main">
+	<p class="subtitle">九大工学部前<span>行き次のバス</span></p>
 		<div id="toUniv"></div>
-	<p class="subtitle">→九大学研都市駅</p>
+	<p class="subtitle">九大学研都市駅<span>行き次のバス</span></p>
 		<div id="toStation"></div>
-	<div id="blank"></div>
+	</div>
+
+	<div id="line">
+		<p class="subtitle"></p>
+		<div id="printLine"></div>
+	</div>
 
 		<ul id="select_bar">
 		<li class="button1"><span class="bar_text">九大<br>学研都市</span></li>
@@ -64,5 +92,6 @@
 		</select>
 		</li>
 		</ul>
+
 </body>
 </html>
