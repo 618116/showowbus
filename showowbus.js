@@ -201,7 +201,7 @@ $(function ($) {
         if(isMain){
             if(goForward){
                 $("#line").animate({ scrollTop: 0 }, 0);
-                $("#select_bar").animate({"right":"100%"},300);
+                //$("#select_bar").animate({"right":"100%"},300);
                 $("#main").animate({"right":"100%"},300);
             }
             else {
