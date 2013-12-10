@@ -165,7 +165,7 @@ select{
     -moz-appearance:button;
     appearance:button;
 	position:absolute;
-    width: 100%;
+    /*width: 100%;*/
     height: 88px;
     opacity:0;
     bottom:0;
