@@ -20,22 +20,13 @@ $(function ($) {
     $("#main").css("height",($(window).height() - $("#title_main").height() - 20) + "px");
     });
 
-	$("select").change(function(){
-		if($("select").val() != "none"){
-            //$(".button6 .bar_text").html($("select option:selected").text());
-            makeMain(false);
-        }
-        else{
-            //$(".button6 .bar_text").html("その他");
-        }
-	});
+	
 
 
     $("#select_bar").children().mousedown(function(){
         $(this).css({"background-color":"#34AADC","color":"white","font-weight":"bold"});
         $(this).siblings().css({"background-color":"#F7F7F7","color":"#8E8E93","font-weight":"normal"});
     });
-
     $(".button1").mousedown(function(){
         makeMain("gakken");
     });
@@ -51,10 +42,17 @@ $(function ($) {
     $(".button5").mousedown(function(){
         makeMain("kougakubu");
     });
+    $("select").change(function(){
+        if($("select").val() != "none") makeMain(false);
+    });
+
+
     $(".back").mousedown(function(){
         pageTurn(false);
     });
+
     $("#main").on("mousedown",".bustime",makeLine);
+    
     $("#main").on("mousedown",".more",function(){
         $(this).slideUp(200,function(){
             if($(this).parent().attr("id") == "toUniv") printMain(toUnivLineNum_[2]+1,null);
@@ -212,8 +210,9 @@ $(function ($) {
             }
             else {
                 $("#title_home").animate({"right":"0%"},300);
-                $("#home").animate({"right":"0%"},300);
-                $("#select_bar li").css({"background-color":"#F7F7F7","color":"#8E8E93","font-weight":"normal"});
+                $("#home").animate({"right":"0%"},300,function(){
+                    $("#select_bar li").css({"background-color":"#F7F7F7","color":"#8E8E93","font-weight":"normal"});
+                });
                 $("#select_bar").animate({"right":"0%"},300);
             }
             isMain = false;
