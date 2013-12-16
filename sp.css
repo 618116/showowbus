@@ -4,7 +4,6 @@ padding: 0 ;
 font-family:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
 -webkit-text-size-adjust: 100%; /* iPhoneレイアウト崩れ防止 */
 -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-
 }
 
 body{

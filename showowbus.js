@@ -247,8 +247,6 @@ $(function ($) {
             if(isLastBus) info += " <span class=\"lastbus\">終</span>";
             flg = true;
         }
-        
-
         var busTimeHTML = "<div class=\"bustime\">";
         busTimeHTML += "<span class=\"time\">";
         busTimeHTML += eval("line."+busStop_);
@@ -10596,7 +10594,7 @@ var timetable = {
     "gakken":"16:50"
   },
   {
-    "kougakubu":"　",
+    "kougakubu":null,
     "bigorange":"16:40",
     "firecenter":"16:42",
     "sangaku":"16:42",
@@ -10692,7 +10690,7 @@ var timetable = {
     "gakken":"17:10"
   },
   {
-    "kougakubu":"　",
+    "kougakubu":null,
     "bigorange":"17:04",
     "firecenter":"17:06",
     "sangaku":"17:06",
@@ -10812,7 +10810,7 @@ var timetable = {
     "gakken":"17:32"
   },
   {
-    "kougakubu":"　",
+    "kougakubu":null,
     "bigorange":"17:22",
     "firecenter":"17:24",
     "sangaku":"17:24",
@@ -10908,7 +10906,7 @@ var timetable = {
     "gakken":"17:45"
   },
   {
-    "kougakubu":"　",
+    "kougakubu":null,
     "bigorange":"17:37",
     "firecenter":"17:39",
     "sangaku":"17:39",
@@ -11148,7 +11146,7 @@ var timetable = {
     "gakken":"18:25"
   },
   {
-    "kougakubu":"　",
+    "kougakubu":null,
     "bigorange":"18:17",
     "firecenter":"18:19",
     "sangaku":"18:19",
@@ -11244,7 +11242,7 @@ var timetable = {
     "gakken":"18:45"
   },
   {
-    "kougakubu":"　",
+    "kougakubu":null,
     "bigorange":"18:37",
     "firecenter":"18:39",
     "sangaku":"18:39",
