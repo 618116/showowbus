@@ -86,14 +86,14 @@ $(function ($) {
 				busTimeTemp_.setHours(busTimeTemp[0]);
 				busTimeTemp_.setMinutes(busTimeTemp[1]);
 
-                var busTimeTemp__ = new Date();
+                /*var busTimeTemp__ = new Date();
                 
                 busTimeTemp__.setHours(12);
                 busTimeTemp__.setMinutes(21);
 
-                var nowTemp = busTimeTemp__;
+                var nowTemp = busTimeTemp__;*/
 
-				//var nowTemp = Date.now();
+				var nowTemp = Date.now();
 				if(nowTemp <= busTimeTemp_.getTime()){
 					break;
 				}
@@ -107,13 +107,13 @@ $(function ($) {
                 busTimeTemp_.setHours(busTimeTemp[0]);
                 busTimeTemp_.setMinutes(busTimeTemp[1]);
 
-                var busTimeTemp__ = new Date();
+                /*var busTimeTemp__ = new Date();
                 
                 busTimeTemp__.setHours(12);
                 busTimeTemp__.setMinutes(21);
 
-                var nowTemp = busTimeTemp__;
-                //var nowTemp = Date.now();
+                var nowTemp = busTimeTemp__;*/
+                var nowTemp = Date.now();
                 if(nowTemp <= busTimeTemp_.getTime()){
                     break;
                 }
